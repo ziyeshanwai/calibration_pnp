@@ -119,10 +119,10 @@ if __name__ == '__main__':
                                         cache.right_camera_array[cache.middle_camera_ind, :].T)
             p3d = p3d.T / (p3d.T[:, -1][:, np.newaxis])
             p3d = p3d[:, :-1]
-            print(p3d.shape)
             fig = plt.figure()
             ax = Axes3D(fig)
             ax.scatter(p3d[:, 0], p3d[:, 1], p3d[:, 2], c='b', s=1, linewidths=3, marker='o', label='3d重建点')
+            ax.scatter(objPoints[:, 0], objPoints[:, 1], objPoints[:, 2], c='r', s=1, linewidths=3, marker='o', label='3d重建点')
             plt.show()
             for ind in face_f:
                 ind = np.array(ind, dtype=np.int32) - 1  # face 是从1 开始的 obj点序
